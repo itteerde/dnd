@@ -20,8 +20,8 @@ public class HildrInitiationHunt {
 
 		int hHP = 15;
 		int hToHit = 0;
-		int bHP = 41;
-		int bToHit = 7;
+		int bHP = 19;
+		int bToHit = 4;
 
 		int won = 0;
 		int runs = 10000000;
@@ -33,11 +33,11 @@ public class HildrInitiationHunt {
 
 			for (;;) {
 				if (turn == 'h') {
-					int attack = dAdvantage(20);
+					int attack = d(20);
 					if (attack > 11) {
 						if (attack == 20) {
 							bCHP -= d(10) + d(10) + 2 + 3 + 10;
-							attack = dAdvantage(20);
+							attack = d(20);
 							if (attack == 20) {
 								bCHP -= d(10) + d(10) + 2 + 3 + 10;
 							} else {
@@ -49,20 +49,20 @@ public class HildrInitiationHunt {
 					}
 					turn = 'b';
 				} else {
-					int attack = d(20) + 7;
+					int attack = d(20) + bToHit;
 					if (attack > 13) {
 						if (attack == 20) {
-							hCHP -= d(8) + d(8) + 5;
+							hCHP -= d(6) + d(6) + 2;// d(8) + d(8) + 5;
 						} else {
-							hCHP -= d(8) + 5;
+							hCHP -= d(6) + 2;// d(8) + 5;
 						}
 					}
-					attack = d(20) + 7;
+					attack = d(20) + bToHit;
 					if (attack > 13) {
 						if (attack == 20) {
-							hCHP -= d(6) + d(6) + d(6) + d(6) + 5;
+							hCHP -= d(4) + d(4) + d(4) + d(4) + 2;// d(6) + d(6) + d(6) + d(6) + 5;
 						} else {
-							hCHP -= d(6) + d(6) + 5;
+							hCHP -= d(4) + d(4) + 2;// d(6) + d(6) + 5;
 						}
 					}
 					turn = 'h';
